@@ -1,0 +1,416 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Wedding Registry-Registry Page</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'mainpage/style.css' %}">
+	
+	<style>
+	 
+		
+		/*.info.section-content.container{
+	      background: rgba(0, 0, 0, 0.8);
+		  color:white;
+		  padding: 1.875rem;
+	   }*/
+	   
+	@media screen and (min-width: 900px) { 
+     
+	   html,body{
+	    margin-top: 0;
+	    height: 100%;
+		background: url("{% static 'img/chuppah.jpg' %}") no-repeat center center;
+		background-size: cover;
+	   }
+	   
+	  
+		
+	   #cover{
+	   
+	   padding-top: 5%;
+	  
+		background-size: cover;
+		height: 100%;
+		text-align: center;
+		align-items: center;
+	   }
+	   
+	   #cover-caption{
+	   width:100%;
+	   }
+	   
+	   }
+	   
+	   @media screen and (max-width: 900px) {
+     body {
+      background: url("{% static 'img/coupleHeartBackground.jpg' %}") no-repeat bottom center;
+	  position: absolute;
+     }
+	 
+	  #info{
+	       background-color: rgba(0,0,0,0.1);
+		   background-size: cover;
+		    text-align:center;
+		   align-items:center;
+		   margin: 0 auto;
+		   overflow:scroll;
+		}
+		
+	  ul li{
+     list-style-image: url("{% static 'img/rosesTiny.jpg' %}");
+     }
+	 }
+	
+	</style>
+</head>
+<body>
+	<section id = "cover">
+	 <div id = "cover-caption">
+		<div class = "container">
+		<div class = "col-sm-10 col-sm-offset-1">
+     <h1>Registry</h1>
+
+	<nav>
+	   <ul>
+		<li><a href = "{% url 'home' %}">Home</a></li>
+		<li><a href = "{% url 'registry' %}">Registry</a></li>
+		<li><a href = "{% url 'rsvp' %}">RSVP</a></li>
+		<li><a href = "{% url 'photos' %}">Photos</a></li>
+	   </ul>
+   </nav>
+   <h2>Wedding photos and their descriptions</h2>
+   <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+	  
+		
+		 {%for item in items%}
+        <div class="col">
+          <div class="card shadow-sm">
+           <img src = '{{item.image.url}}' width = "100%" height = "225px">
+            <div class="card-body">
+              <p class="card-text">{{item.caption}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+		{%endfor%}
+   <!--<div class = "section-content">
+	<div class = "container">
+	
+	 </div>-->
+	    </div>
+	      </div>
+		     </div>
+    </section>
+		
+		</main>
+	</div>
+</body>
+</html>
+
+
+----------------------------------
+
+{% load static %}   
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wedding Registry-Homepage</title>
+	<script type = "text/javascript" src="{% static 'mainPage/jquery.js' %}"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	  <!-- Bootstrap CSS -->
+	 <link rel="stylesheet" href="{% static 'mainPage/style.css' %}">
+	  
+	
+	<style>
+	
+	  #info{
+	  width:100%;
+	  height: 100%;
+	  }
+	  
+	 @media screen and (min-width: 900px){
+	 #info{
+	       height: 25%;
+	       background: url("{% static 'img/whiteRoses.jpg' %}") no-repeat center center;
+		   padding:1%;
+		   text-align:center;
+		   align-items:center;
+		   background-size:contain;
+		   margin: 0 auto;
+		  
+		}
+		
+		/*.info.section-content.container{
+	      background-color: rgb(0,0,0,0.1)
+		  
+		  color:white;
+		  padding: 1.875rem;
+	   };*/
+	
+	  
+	html,body{
+	    height: 100%;
+	   }
+	   
+	   #info{
+	       background: url("{% static 'img/whiteRoses.jpg' %}") no-repeat center center;
+		   background-size: cover;
+		    text-align:center;
+		   align-items:center;
+		   margin: 0 auto;
+		}
+	   
+	.heart{
+	    background: url("{% static 'img/heart.png' %}") no-repeat center center;
+	   	/*background: url("{% static 'img/heart.png' %}") no-repeat fixed center;*/
+	     width: 315px;
+		 height: 315px;
+		text-align: center;
+		align-items: center;
+       }
+	  
+	   #cover{
+	    align-items: center;
+		background-size:cover;
+	    background: url("{% static 'img/brideAndGroom.jpg' %}") no-repeat center left;
+		height: 100%;
+		text-align: center;
+	   }
+	   
+	   #cover-caption{
+	   width:100%;
+	   }
+	   }/*end of media screen*/
+	   
+	   @media screen and (max-width: 900px) {
+     body {
+	 min-height: 100%;
+	 overflow:hidden;
+      background: url("{% static 'img/coupleHeartBackground.jpg' %}") no-repeat bottom center;
+	  position:absolute;
+     }
+	 html, body {
+     height: 100%; width: 100%;
+     padding: 0; margin: 0;
+     }
+	 
+	   
+	   #info{
+		  
+		    text-align:center;
+		   align-items:center;
+		   margin: 0 auto;
+		}
+		
+	 ul li{
+     list-style-image: url("{% static 'img/rosesTiny.jpg' %}");
+     }
+	 }
+	</style>
+  
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <section id = "cover">
+	 <div id = "cover-caption">
+		<div class = "container">
+		<div class = "col-sm-10 offset-sm-1">
+     <h1>Michelle & James</h1>
+
+	<nav>
+	   <ul>
+		<li><a href = "{% url 'home' %}">Home</a></li>
+		<li><a href = "{% url 'registry' %}">Registry</a></li>
+		<li><a href = "{% url 'rsvp' %}">RSVP</a></li>
+		<li><a href = "{% url 'photos' %}">Photos</a></li>
+	   </ul>
+   </nav>
+   <a href = "#info">
+   <div class = "container heart">
+
+   </div></a><!--Heart div>-->
+	    </div>
+	      </div>
+		     </div>
+    </section>
+	<section id = "info"><!--cookies-->
+	<div class = "section-content">
+	<div class = "container">
+	  <p class = "lead">Hi, we are Michelle and James and we are happily getting married on May 19, 2021. </p>
+     </div>
+	 </div>
+	</section>
+      
+    <!-- Optional JavaScript; choose one of the two! -->
+	<script type = "text/javascript" src="{% static 'mainPage/javascript.js' %}"></script>   
+    
+    
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+	
+  </body>
+</html>
+{% load static %}  
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="{% static 'mainPage/style.css' %}">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+    <title>Wedding Registry</title>
+  </head>
+  <body class = "text-center">
+    <h1>Michelle & James</h1>
+	<nav>
+	   <ul>
+		<li><a href = "{% url 'home' %}">Home</a></li>
+		<li><a href = "{% url 'registry' %}">Registry</a></li>
+		<li><a href = "{% url 'rsvp' %}">RSVP</a></li>
+		<li><a href = "{% url 'photos' %}">Photos</a></li>
+	   </ul>
+   </nav>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Wedding Registry-Photos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'mainpage/style.css' %}">
+	<style>
+	
+		
+		
+	@media screen and (min-width: 900px) {  
+	   html,body{
+	    height: 100%;
+	   }
+	   
+	
+	
+	   #cover{
+	   	background: url("{% static 'img/photosBackground.jpg' %}") no-repeat bottom center;
+	   	/*background: url("{% static 'img/heart.png' %}") no-repeat fixed center;*/
+		height: 100%;
+		text-align: center;
+		align-items: center;
+	    
+	   }
+	   
+	   #cover-caption{
+	   width:100%;
+	   overflow:scroll;
+	   }
+	   
+	   
+	  
+	   }
+	   
+	   @media screen and (max-width: 900px) {
+     body {
+      background: url("{% static 'img/wineHeartBackground.jpg' %}") no-repeat bottom center;
+     }
+	 
+	  #info{
+	       background-color: rgba(0,0,0,0.1);
+		   background-size: cover;
+		   text-align:center;
+		   align-items:center;
+		   margin: 0 auto;
+		   overflow:scroll;
+		}
+		
+		
+	 ul li{
+     list-style-image: url("{% static 'img/rosesTiny.jpg' %}");
+     }
+	 }
+	 </style>
+</head>
+<body>
+	<section id = "cover">
+	 <div id = "cover-caption">
+		<div class = "container">
+		<div class = "col-sm-10 col-sm-offset-1">
+     <h1>Photos</h1>
+
+	<nav>
+	   <ul>
+		<li><a href = "{% url 'home' %}">Home</a></li>
+		<li><a href = "{% url 'registry' %}">Registry</a></li>
+		<li><a href = "{% url 'rsvp' %}">RSVP</a></li>
+		<li><a href = "{% url 'photos' %}">Photos</a></li>
+	   </ul>
+   </nav>
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+	  
+		
+		 {%for pic in pictures%}
+        <div class="col">
+          <div class="card shadow-sm">
+           <img src = '{{pic.image.url}}' width = "100%" height = "225px">
+            <div class="card-body">
+              <p class="card-text">{{pic.caption}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+		{%endfor%}
+   <!--<div class = "section-content">
+	<div class = "container">
+	
+	 </div>-->
+	    </div>
+	      </div>
+		     </div>
+    </section>
+   
+</body>
+</html>

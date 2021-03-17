@@ -1,0 +1,21 @@
+ 
+{% extends "base.html" %}
+{% load static %} 
+
+{% block content %}
+<div class = "form-signin">
+<img src = "{% static 'img/roses.jpg' %} " width = "200px" height = "200px">
+  <h2>Thank you, {{name}}!</h2>
+	<p>Your information has been added to our guest list.
+	We are looking forward to seeing you at our wedding!.</p>
+</div>
+<style>
+   main{
+   align-items: center;
+   background-size:cover;
+   background: url("{% static 'img/photosBackground.jpg' %}") no-repeat bottom center;
+   height: 100%;
+   text-align: center;	    	  
+   }
+    </style>
+{% endblock %}

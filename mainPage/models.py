@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+     
 class Picture(models.Model):
     title = models.CharField(max_length = 100)
     caption = models.TextField(max_length = 500)
@@ -20,3 +21,10 @@ class Item(models.Model):
     
     def __str__(self):
         return self.title
+        
+class Guest(models.Model):
+    name = models.CharField(max_length = 100)
+    email = models.CharField(max_length = 100)
+    
+    def __str__(self):
+        return self.name
