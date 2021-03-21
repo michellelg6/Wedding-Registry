@@ -26,7 +26,7 @@ SECRET_KEY = 'w7z_5v3fi)v65t$(w&)bwlg$zj%-7ja+6l6b4axw0%!!p!)(g)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = ['www.michelleandjameswed.com']
+ALLOWED_HOSTS = ['www.michelleandjameswed.com', '127.0.0.1',]
 
 
 # Application definition
@@ -38,9 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'photos',
-    'rsvp',
-    'regPage',
     'mainPage',
 ]
 
