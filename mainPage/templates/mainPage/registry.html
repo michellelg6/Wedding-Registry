@@ -30,16 +30,19 @@
   </div>
   <style>
   @media only screen and (min-width: 900px) {
-				.album{
+				main{
 				   align-items: center;
-				   background-size:cover;
-				   background: url("{% static 'img/curtains.jpg' %}") no-repeat top center;
+				  
 				   
 				   height: 100%;
 				    
-				   flex-shrink:2;
+				   flex-shrink:1;
 				   text-align: center;	    	  
 				   }}
+				   .album{
+				    background-size:cover;
+				   background: url("{% static 'img/curtains.jpg' %}") no-repeat top center;
+				   }
 				   .album .container{
 				   width:100%;}
    @media only screen and (max-width: 900px) {
@@ -47,6 +50,8 @@
     background: url("{% static 'img/chuppahBackground.jpg' %}") no-repeat bottom center;
 	
   }
+  
+  
 }
     </style>
 {% endblock %}
